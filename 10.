@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class GCDRecursive {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the value of a: ");
+        int a = scanner.nextInt();
+        System.out.print("Enter the value of b: ");
+        int b = scanner.nextInt();
+
+
+        int gcd = findGCD(a, b);
+        System.out.println("GCD of " + a + " and " + b + " is: " + gcd);
+
+        scanner.close();
+    }
+
+    public static int findGCD(int a, int b) {
+        if (b == 0) {
+            return a;
+        } else {
+            return findGCD(b, a % b);
+        }
+    }
+}
