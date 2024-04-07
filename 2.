@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class AverageOfArray {
+public class ArrayAverage {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -14,24 +14,18 @@ public class AverageOfArray {
             arr[i] = scanner.nextInt();
         }
 
-        double average = findAverage(arr, n);
+        double average = calculateAverage(arr);
 
         System.out.println("Average: " + average);
 
         scanner.close();
     }
 
-
-    public static int arraySum(int[] arr, int n) {
-        if (n <= 0) {
-            return 0;
+    public static double calculateAverage(int[] arr) {
+        int sum = 0;
+        for (int num : arr) {
+            sum += num;
         }
-        return arr[n - 1] + arraySum(arr, n - 1);
-    }
-
-
-    public static double findAverage(int[] arr, int n) {
-        int sum = arraySum(arr, n);
-        return (double) sum / n;
+        return (double) sum / arr.length;
     }
 }
