@@ -1,0 +1,37 @@
+import java.util.Scanner;
+
+public class AverageOfArray {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the number of elements: ");
+        int n = scanner.nextInt();
+
+        int[] arr = new int[n];
+
+        System.out.println("Enter the elements:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = scanner.nextInt();
+        }
+
+        double average = findAverage(arr, n);
+
+        System.out.println("Average: " + average);
+
+        scanner.close();
+    }
+
+
+    public static int arraySum(int[] arr, int n) {
+        if (n <= 0) {
+            return 0;
+        }
+        return arr[n - 1] + arraySum(arr, n - 1);
+    }
+
+
+    public static double findAverage(int[] arr, int n) {
+        int sum = arraySum(arr, n);
+        return (double) sum / n;
+    }
+}
