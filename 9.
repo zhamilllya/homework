@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class BinomialCoef {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the value of n: ");
+        int n = scanner.nextInt();
+        System.out.print("Enter the value of k: ");
+        int k = scanner.nextInt();
+
+        int binomialCoefficient = calculateBinomialCoef(n, k);
+        System.out.println("Binomial Coefficient C(" + k + ") = " + binomialCoef);
+
+        scanner.close();
+    }
+    
+    public static int calculateBinomialCoef(int n, int k) {
+        if (k == 0 || k == n) {
+            return 1; 
+        } else {
+            return calculateBinomialCoef(n - 1, k - 1) + calculateBinomialCoef(n - 1, k);
+        }
+    }
+}
