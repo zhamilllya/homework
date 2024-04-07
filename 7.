@@ -1,0 +1,34 @@
+import java.util.Scanner;
+
+public class StringPermutations {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter a string: ");
+        String str = scanner.nextLine();
+
+
+        System.out.println("All permutations:");
+        permute(str.toCharArray(), 0, str.length() - 1);
+
+        scanner.close();
+    }
+
+    public static void permute(char[] chars, int start, int end) {
+        if (start == end) {
+            System.out.println(new String(chars));
+        } else {
+            for (int i = start; i <= end; i++) {
+                swap(chars, start, i);
+                permute(chars, start + 1, end);
+                swap(chars, start, i); // Backtrack
+            }
+        }
+    }
+
+    public static void swap(char[] chars, int i, int j) {
+        char temp = chars[i];
+        chars[i] = chars[j];
+        chars[j] = temp;
+    }
+}
