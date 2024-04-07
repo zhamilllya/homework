@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class DigitCheck {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter a string: ");
+        String s = scanner.nextLine();
+
+        boolean isAllDigits = checkAllDigits(s);
+
+        if (isAllDigits) {
+            System.out.println("The string consists only of digits.");
+        } else {
+            System.out.println("The string contains characters other than digits.");
+        }
+
+        scanner.close();
+    }
+
+    public static boolean checkAllDigits(String s) {
+        for (int i = 0; i < s.length(); i++) {
+            if (!Character.isDigit(s.charAt(i))) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
