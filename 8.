@@ -10,9 +10,9 @@ public class DigitCheck {
         boolean isAllDigits = checkAllDigits(s);
 
         if (isAllDigits) {
-            System.out.println("The string consists only of digits.");
+            System.out.println("Yes");
         } else {
-            System.out.println("The string contains characters other than digits.");
+            System.out.println("No");
         }
 
         scanner.close();
